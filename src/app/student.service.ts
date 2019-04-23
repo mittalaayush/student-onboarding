@@ -63,7 +63,7 @@ export class StudentService {
   }
 
   fetchAdmins() {
-    const url = '/assets/admin.json';
+    const url = './assets/admin.json';
 
     this.http.get<AdminI[]>(url).subscribe(data => {
       this.admin$.next(data);
