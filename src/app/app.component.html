@@ -1,0 +1,7 @@
+<div *ngIf="adminName==undefined">
+<app-login-admin (notify)='onNotify($event)'>
+</app-login-admin>
+</div>
+<div *ngIf="adminName!=undefined">
+<app-portal></app-portal>
+</div>

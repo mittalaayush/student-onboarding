@@ -1,0 +1,45 @@
+<div class="container">
+<div class="row">
+    <div class="col-md-4 offset-md-1">
+  Onboarding Form ({{this.studentService.currentMode}})
+  </div>
+  
+</div>
+
+<div [formGroup]="onBoardingForm" *ngIf="this.studentService.currentMode=='create'||this.studentService.currentMode=='edit'">
+ Student Name  <input type="text" placeholder=" Name" formControlName="studentName" required minlength="3"/><br>
+ 
+ Category <select formControlName="category" required>
+    <option value="" disabled selected>Select category</option>  
+    <option value="Domestic">Domestic</option>
+    <option value="International">International</option>
+    </select>
+ <br> Documents <label><input type="checkbox" formControlName="domicile" required>Domicile</label>
+ <br> <label><input type="checkbox" formControlName="birthCertificate" required>Birth Certificate</label>
+ <br> <label><input type="checkbox" formControlName="marksheets" required>Marksheets</label>
+ <br> <label><input type="checkbox" formControlName="policeClearance" ng-required="this.onBoardingForm.value.category=='International'">Police Clearance</label>
+ <br> <label><input type="checkbox" formControlName="passport" ng-required="this.onBoardingForm.value.category=='International'">Passport</label>
+ <br> <label><input type="checkbox" formControlName="declaration"required>Declaration</label>
+ <br> DOB<input type="date" formControlName="dob" value="this.student"><br>
+  Father's Name <input type="text" formControlName="fathersName"><br>
+  Mother's Name <input type="text" formControlName="mothersName"><br>
+  Last Class Score <input type="number" min="0" step="1" max="100" formControlName="lastClassScore"  placeholder="%(marks)" min="0" max="100"><br>
+  <button type="submit" (click)='onBoardStudent()'>Onboard</button>
+</div>
+
+<div [formGroup]="onBoardingForm" *ngIf="this.studentService.currentMode=='view'">
+ Student Name : {{this.studentService.currentStudent.studentName}}<br>
+ 
+ Category : {{this.studentService.currentStudent.category}}
+ Documents <label><input type="checkbox" disabled="disabled" formControlName="domicile">Domicile</label>
+ <br> <label><input type="checkbox" disabled="disabled" formControlName="birthCertificate">Birth Certificate</label>
+ <br> <label><input type="checkbox" disabled="disabled" formControlName="marksheets">Marksheets</label>
+ <br> <label><input type="checkbox" disabled="disabled" formControlName="policeClearance">Police Clearance</label>
+ <br> <label><input type="checkbox" disabled="disabled" formControlName="passport">Passport</label>
+ <br> <label><input type="checkbox" disabled="disabled" formControlName="declaration">Declaration</label>
+ <br> DOB : {{this.studentService.currentStudent.dob | date : 'mediumDate'}} <br>
+  Father's Name :{{this.studentService.currentStudent.fatherName}}<br>
+  Mother's Name : {{this.studentService.currentStudent.motherName}}<br>
+  Last Class Score : {{this.studentService.currentStudent.lastClassScore}}%<br>
+  </div>
+  </div>

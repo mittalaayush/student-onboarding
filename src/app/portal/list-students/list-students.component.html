@@ -1,0 +1,43 @@
+<div class="row">
+  <div class="col-md-3 offset-md-2">
+Category <select id="Category" #Category style="display: block" (change)="setCategory()" >
+    <option value="All"  selected>All</option>  
+    <option value="Domestic">Domestic</option>
+    <option value="International">International</option>
+    </select>
+  </div>
+
+  <div class="col-md-3 offset-md-2">
+ <input type id="searchStudent" #SearchStudent style="display: block" placeholder="Search Student" (change)="setStudentFilter()" value = "{{this.studentFilter}}">
+  </div>
+
+  </div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Student Name</th>
+      <th scope="col">Category</th>
+      <th scope="col">Date of Birth</th>
+      <th scope="col">Options</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr *ngFor=" let student of this.students; let i = index ">
+        <td *ngIf="(this.categoryFilter=='All' || student.category == this.categoryFilter)
+        && (student.studentName!=null && student.studentName.includes(this.studentFilter) )">{{i+1}}</td>
+        <td *ngIf="(this.categoryFilter=='All' || student.category == this.categoryFilter) 
+        && (student.studentName!=null && student.studentName.includes(this.studentFilter))"> {{student.studentName}}</td>
+        <td *ngIf="(this.categoryFilter=='All' || student.category == this.categoryFilter) 
+        && (student.studentName!=null && student.studentName.includes(this.studentFilter))">{{student.category}}</td>
+        <td *ngIf="(this.categoryFilter=='All' || student.category == this.categoryFilter) 
+        && (student.studentName!=null && student.studentName.includes(this.studentFilter))">{{student.dob | date : 'mediumDate'}}</td>
+        <td *ngIf="(this.categoryFilter=='All' || student.category == this.categoryFilter) 
+        && (student.studentName!=null && student.studentName.includes(this.studentFilter))">
+            <a [routerLink]="['/onBoardingForm']"><input type="button" style="background-color:#00df00" value="View" (click)='onView($event, student)' /></a>
+            <a [routerLink]="['/onBoardingForm']"><input type="button" value="Edit" (click)='onEdit($event, student)' /></a>
+          <input type="button" value="Delete" style="background-color:#df0000" (click)='onDelete($event, student)'/>
+        </td>
+      </tr>
+  </tbody>
+</table>
