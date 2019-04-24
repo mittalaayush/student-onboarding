@@ -2,6 +2,21 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.6.
 
+## Created By
+
+Aayush Mittal
+email id :aayush.mittal@nagarro.com
+emp id : 3146443
+
+## Code 
+
+https://github.com/mittalaayush/student-onboarding/
+
+
+## Deployed At
+
+https://mittalaayush.github.io/student-onboarding/
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
