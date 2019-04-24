@@ -5,7 +5,9 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 ## Created By
 
 Aayush Mittal
+
 email id :aayush.mittal@nagarro.com
+
 emp id : 3146443
 
 ## Code 
@@ -16,6 +18,17 @@ https://github.com/mittalaayush/student-onboarding/
 ## Deployed At
 
 https://mittalaayush.github.io/student-onboarding/
+
+## login credential
+
+username : admin 
+
+password : admin
+
+
+username : aayush
+
+password : pass
 
 ## Development server
 
